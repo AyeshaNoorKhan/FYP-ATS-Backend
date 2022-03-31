@@ -6,31 +6,30 @@ class CandInfoController{
 
     static addCandInfo = async (req,res)=>{
 //      const {cand_id,cand_name,cand_dob,cand_contact,cand_address,cand_city,cand_postalcode,cand_cnic,cand_country,cand_maritalstatus,cand_source,cand_referedby,cand_highedu,cand_workexp}=req.body;
-      //  const {cand_id,cand_name,cand_email,cand_contact,cand_dob,cand_city,cand_country,cand_highedu,cand_workexp,cand_gender,cand_shiftspref,cand_hecverif,cand_Resume}=req.body;
-    //   var a=0;  
-    //   if (a ==0 )
-    //     {
-            //cand_id && cand_name && cand_email && cand_contact && cand_dob && cand_city && cand_country && cand_highedu && cand_workexp && cand_gender && cand_shiftspref && cand_hecverif && cand_Resumes
+        const {cand_id,cand_name,cand_email,cand_contact,cand_city,cand_country,cand_highedu,cand_workexp,cand_gender,cand_shiftspref,cand_hecverif,cand_positionApplied,cand_Resume}=req.body;
+    //    if (cand_id && cand_name && cand_email && cand_contact && cand_city && cand_country && cand_highedu && cand_workexp && cand_gender && cand_shiftspref && cand_hecverif && cand_positionApplied && cand_Resume )
+    //      {
             try{
                 const newCandInfo = new CandInfo({
-                //     cand_id:cand_id,
-                //     cand_name:cand_name,
-                //     cand_email:cand_email,
-                //     cand_contact:cand_contact,
+                    cand_id:cand_id,
+                    cand_name:cand_name,
+                    cand_email:cand_email,
+                    cand_contact:cand_contact,
                 //     cand_dob:cand_dob,
                 // //    cand_address:cand_address,
-                //     cand_city:cand_city,
+                    cand_city:cand_city,
                 // //    cand_postalcode:cand_postalcode,
                 // //    cand_cnic:cand_cnic,
-                //     cand_country:cand_country,
+                    cand_country:cand_country,
                 // //    cand_maritalstatus:cand_maritalstatus,
                 // //    cand_source:cand_source,
                 // //    cand_referedby:cand_referedby,
-                //     cand_highedu:cand_highedu,
-                //     cand_workexp:cand_workexp,
-                //     cand_gender:cand_gender,
-                //     cand_shiftspref:cand_shiftspref,
-                //     cand_hecverif:cand_hecverif,
+                    cand_highedu:cand_highedu,
+                    cand_workexp:cand_workexp,
+                    cand_gender:cand_gender,
+                    cand_shiftspref:cand_shiftspref,
+                    cand_hecverif:cand_hecverif,
+                    cand_positionApplied:cand_positionApplied,
                     cand_Resume:req.file.cand_Resume
                 })
                 // if(req.file)
@@ -54,7 +53,7 @@ class CandInfoController{
            
         // }
         // else{
-        //     res.send({"status":"Failed", "message":"Fill All Fields"})
+        //     res.send({"status":"FailedA", "message":"Fill All Fields"})
         // }
 
     }

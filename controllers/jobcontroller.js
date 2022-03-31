@@ -3,8 +3,10 @@ const JobDetail=require('../models/JobDetailSchema.js');
 class JobDetailController{
 
     static addJobDetail = async (req,res)=>{
-        const {job_id,job_code,job_category,job_title,job_location,job_positions,job_requirement,job_workexp}=req.body;
-        if (job_id && job_code &&  job_category &&  job_title &&  job_location &&  job_positions &&  job_requirement &&  job_workexp)
+        const {job_id,job_code,job_category,job_title,job_location,job_positions,
+            job_descriptionA,job_descriptionB,job_descriptionC,job_descriptionD,job_descriptionE,job_descriptionF,job_descriptionG,job_descriptionH,
+            job_qualificationA,job_qualificationB,job_qualificationC,job_qualificationD,job_qualificationE,job_experience    }=req.body;
+        if (job_id && job_code &&  job_category &&  job_title &&  job_location &&  job_positions &&  job_descriptionA  && job_experience)
         {
             try{
                 const newJob = new JobDetail({
@@ -14,8 +16,20 @@ class JobDetailController{
                     job_title:job_title,
                     job_location:job_location,
                     job_positions:job_positions,
-                    job_requirement:job_requirement,
-                    job_workexp:job_workexp
+                    job_descriptionA:job_descriptionA,
+                    job_descriptionB:job_descriptionB,
+                    job_descriptionC:job_descriptionC,
+                    job_descriptionD:job_descriptionD,
+                    job_descriptionE:job_descriptionE,
+                    job_descriptionF:job_descriptionF,
+                    job_descriptionG:job_descriptionG,
+                    job_descriptionH:job_descriptionH,
+                    job_qualificationA:job_qualificationA,
+                    job_qualificationB:job_qualificationB,
+                    job_qualificationC:job_qualificationC,
+                    job_qualificationD:job_qualificationD,
+                    job_qualificationE:job_qualificationE,
+                    job_experience:job_experience
                 })
                 newJob.save();
                 res.send({"status":"Success", "message":"New Job Created"})

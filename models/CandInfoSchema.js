@@ -7,15 +7,11 @@ const CandInfoSchema=new mongoose.Schema({
     date:{type:Date,default:Date.now},
     cand_id:{type:String,unique:true},
     cand_name:{type:String,required:false},
-  //cand_dob:{type:Date,required:true,},
     cand_email:{type:String,required:false,},
     cand_contact:{type:String,required:false,},
-  //cand_address:{type:String,required:false,},
     cand_city:{type:String,required:false,},
-  //cand_postalcode:{type:Number,required:false,},
   //cand_cnic:{type:String,required:false,},
     cand_country:{type:String,required:false,},
-  //cand_maritalstatus:{type:String,required:false,},
   //cand_source:{type:String,required:false,},
   //cand_referedby:{type:String,required:false,},
     cand_highedu:{type:String,required:false,},
@@ -23,6 +19,7 @@ const CandInfoSchema=new mongoose.Schema({
     cand_gender:{type:String,required:false,},
     cand_shiftspref:{type:String,required:false,},
     cand_hecverif:{type:String,required:false,},
+    cand_positionApplied:{type:String,required:false,},
     cand_Resume:{type:String,required:false,}
     // cand_Resume:{data:Buffer,contentType:String}
 })
