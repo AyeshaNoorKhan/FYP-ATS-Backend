@@ -57,6 +57,44 @@ class JobDetailController{
         }
     }
 
+    static updateJob = async (req,res) => {
+        try
+        {
+            const {_id,job_id,job_code,job_category,job_title,job_location,job_positions,
+                job_descriptionA,job_descriptionB,job_descriptionC,job_descriptionD,job_descriptionE,job_descriptionF,job_descriptionG,job_descriptionH,
+                job_qualificationA,job_qualificationB,job_qualificationC,job_qualificationD,job_qualificationE,job_experience}=req.body;
+           
+                var UpdatedJob = {
+                job_id:job_id,
+                job_code:job_code,
+                job_category:job_category,
+                job_title:job_title,
+                job_location:job_location,
+                job_positions:job_positions,
+                job_descriptionA:job_descriptionA,
+                job_descriptionB:job_descriptionB,
+                job_descriptionC:job_descriptionC,
+                job_descriptionD:job_descriptionD,
+                job_descriptionE:job_descriptionE,
+                job_descriptionF:job_descriptionF,
+                job_descriptionG:job_descriptionG,
+                job_descriptionH:job_descriptionH,
+                job_qualificationA:job_qualificationA,
+                job_qualificationB:job_qualificationB,
+                job_qualificationC:job_qualificationC,
+                job_qualificationD:job_qualificationD,
+                job_qualificationE:job_qualificationE,
+                job_experience:job_experience
+            };
+          
+            JobDetail.findOneAndUpdate({job_id: job_id}, UpdatedJob, { new: true }) 
+        }
+        catch(error)
+        {
+            res.send({"status":"Failed", "message":"Failed to update Job Data"});
+        }
+    }
+
 
 
 

@@ -31,6 +31,7 @@ app.use(express.json());
   // JOB Routes
 app.use("/api/job",jobRoutes);
 app.use("/api/job",jobRoutes);
+app.use("/api/job",jobRoutes);
 
 // Aptitude Test Routes
 app.use("/api/aptTest",aptitudeRoutes);
@@ -41,7 +42,7 @@ app.use("/api/candinfo",candInfoRoutes);
 app.use("/api/candinfo",candInfoRoutes);
 app.use("/api/candinfo",candInfoRoutes);
 
-// Candidate Information
+// Candidate Resume
 //app.use("/api/candinfo",candInfoRoutes);
 app.use("/api/candresm",candResRoutes);
 app.use("/api/candresm",candResRoutes);

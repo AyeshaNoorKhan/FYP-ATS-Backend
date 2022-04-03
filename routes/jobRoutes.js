@@ -4,10 +4,11 @@ const JobDetailController = require('../controllers/jobcontroller.js');
 
 // const jobroutes=()=>{
 
-//Public Routes
+//Public Routes 
 
 router.post('/addjob',JobDetailController.addJobDetail);
 router.get('/getjobs',JobDetailController.getJobDetail);
+router.put('/updatejob',JobDetailController.updateJob);
 
 //PRIVATE 
 
