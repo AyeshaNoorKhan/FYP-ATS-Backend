@@ -5,6 +5,7 @@ require("dotenv").config();
 const jobSchema=new mongoose.Schema({
     date:              {type:Date,default:Date.now},
     job_id:            {type:String,unique:true},
+    id:                {type:String,unique:true},
     job_code:          {type:String,required:true,unique:true},
     job_category:      {type:String,required:true,},
     job_title:         {type:String,required:true,},

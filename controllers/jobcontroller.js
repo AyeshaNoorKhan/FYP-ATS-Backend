@@ -11,6 +11,7 @@ class JobDetailController{
             try{
                 const newJob = new JobDetail({
                     job_id:job_id,
+                    id:job_id,
                     job_code:job_code,
                     job_category:job_category,
                     job_title:job_title,
@@ -66,6 +67,7 @@ class JobDetailController{
            
                 var UpdatedJob = {
                 job_id:job_id,
+                id:job_id,
                 job_code:job_code,
                 job_category:job_category,
                 job_title:job_title,
@@ -87,7 +89,7 @@ class JobDetailController{
                 job_experience:job_experience
             };
           
-            JobDetail.findOneAndUpdate({job_id: job_id}, UpdatedJob, { new: true }) 
+            JobDetail.findOneAndUpdate({_id: _id}, UpdatedJob, { new: true }) 
         }
         catch(error)
         {
