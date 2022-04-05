@@ -61,13 +61,13 @@ class JobDetailController{
     static updateJob = async (req,res) => {
         try
         {
-            const {_id,job_id,job_code,job_category,job_title,job_location,job_positions,
+            const {_id,job_id,id,job_code,job_category,job_title,job_location,job_positions,
                 job_descriptionA,job_descriptionB,job_descriptionC,job_descriptionD,job_descriptionE,job_descriptionF,job_descriptionG,job_descriptionH,
                 job_qualificationA,job_qualificationB,job_qualificationC,job_qualificationD,job_qualificationE,job_experience}=req.body;
            
                 var UpdatedJob = {
                 job_id:job_id,
-                id:job_id,
+                id:id,
                 job_code:job_code,
                 job_category:job_category,
                 job_title:job_title,
@@ -89,7 +89,19 @@ class JobDetailController{
                 job_experience:job_experience
             };
           
-            JobDetail.findOneAndUpdate({_id: _id}, UpdatedJob, { new: true }) 
+            JobDetail.findOneAndUpdate({job_id: job_id}, UpdatedJob, { new: true }, function(
+                err,
+                UpdatedJob
+              ) {
+                if (err) {
+                  console.log("err", err);
+                  res.status(500).send(err);
+                } 
+                else {
+                  console.log("success");
+                  res.send(UpdatedJob);
+                }
+              });
         }
         catch(error)
         {
