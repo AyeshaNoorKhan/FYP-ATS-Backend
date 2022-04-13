@@ -9,7 +9,8 @@ const aptTestSchema=new mongoose.Schema({
     aptTest_question:{type:String,required:true,},
     aptTest_optionA:{type:String,required:true,},
     aptTest_optionB:{type:String,required:true,},
-    aptTest_optionC:{type:String,required:true,},   
+    aptTest_optionC:{type:String,required:false,},
+    aptTest_optionD:{type:String,required:false,},   
     aptTest_answer:{type:String,required:true}
 })
 

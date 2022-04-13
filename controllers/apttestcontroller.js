@@ -3,8 +3,8 @@ const AptTest=require('../models/AptitudeTestSchema.js');
 class AptitudeTestController{
 
     static addAptTest = async (req,res)=>{
-        const {aptTest_id,aptTest_category,aptTest_question,aptTest_optionA,aptTest_optionB,aptTest_optionC,aptTest_answer}=req.body;
-        if (aptTest_id && aptTest_category && aptTest_question && aptTest_optionA && aptTest_optionB && aptTest_optionC && aptTest_answer)
+        const {aptTest_id,aptTest_category,aptTest_question,aptTest_optionA,aptTest_optionB,aptTest_optionC,aptTest_optionD,aptTest_answer}=req.body;
+        if (aptTest_id && aptTest_category && aptTest_question && aptTest_optionA && aptTest_optionB && aptTest_answer)
         {
             try{
                 const newAptTest = new AptTest({
@@ -14,6 +14,7 @@ class AptitudeTestController{
                     aptTest_optionA:aptTest_optionA,
                     aptTest_optionB:aptTest_optionB,
                     aptTest_optionC:aptTest_optionC,
+                    aptTest_optionD:aptTest_optionD,
                     aptTest_answer:aptTest_answer
                 })
                 newAptTest.save();
