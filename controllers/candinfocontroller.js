@@ -55,7 +55,7 @@ class CandInfoController{
             catch(error)
             {
                 console.log("New",error);
-                res.send({"status":"Failed", "message":"Failed to create new Candidate"})
+                res.send({"status":"Failed", "message":"Sorry, Failed to create new Candidate "})
             }
            
         // }
