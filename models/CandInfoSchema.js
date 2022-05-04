@@ -20,8 +20,8 @@ const CandInfoSchema=new mongoose.Schema({
     cand_shiftspref:{type:String,required:false,},
     cand_hecverif:{type:String,required:false,},
     cand_positionApplied:{type:String,required:false,},
-    cand_Resume:{type:String,required:false,}
-    // cand_Resume:{data:Buffer,contentType:String}
+    // cand_Resume:{type:String,required:false,}
+    cand_Resume:{data:Buffer,contentType:String}
 })
 
 const CandInfo= new mongoose.model('CandInfo',CandInfoSchema);

@@ -1,6 +1,8 @@
 const CandInfo=require('../models/CandInfoSchema.js');
 const CandRes=require('../models/CandResumeSchema.js');
+const fs=require('fs');
 const upload             = require('../middlewares/upload.js');
+const { contentType } = require('express/lib/response');
 
 class CandInfoController{
 
@@ -30,7 +32,12 @@ class CandInfoController{
                     cand_shiftspref:cand_shiftspref,
                     cand_hecverif:cand_hecverif,
                     cand_positionApplied:cand_positionApplied,
-                    cand_Resume:req.file.cand_Resume
+                    cand_Resume:
+                    {
+                      data:fs.readFileSync('uploads/' + req.file.filename),
+                      contentType:"application/pdf"
+                    }
+                    // cand_Resume:req.file.cand_Resume
                 })
                 // if(req.file)
                 // {
