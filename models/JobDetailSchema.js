@@ -29,3 +29,19 @@ const jobSchema = new mongoose.Schema({
 
 const JobDetail = new mongoose.model("JobDetail", jobSchema);
 module.exports = JobDetail;
+
+// {
+//   "job_id":"5466jd",
+//   "job_code":"JD-569",
+//   "job_category":"Application Consultant’,",
+//   "job_title":"Senior Application Consultant’",
+//   "job_location":"Karachi",
+//   "job_positions":3,
+//   "job_descriptionA":"ISO8583 messages formats, ATM/CCDM controller, POS acquiring, EMV & Contactless card issuing, H2H interfaces with core banking and other digital channels.",
+//   "job_descriptionB":"Knowledge of integration protocols and practices for IBFT, UBPS, 1BILL, Processing with VISA, MasterCard and UPI payment schemes, Settlement and reconciliation",
+//   "job_descriptionC":"The candidates will lead multiple implementation teams across customers and will be responsible for client implementations and delivery.",
+//   "job_qualificationA":"Should possess strong collaboration, leadership and conflict-resolution skills.",
+//   "job_qualificationB":"Must have a Bachelor’s or Master’s Degree in a Technology Domain.",
+//   "job_qualificationC":"Should possess strong collaboration, leadership and conflict-resolution skills.",
+//   "job_experience":"Should have 7 plus years’ experience in leading multiple Implementation teams in the Payments Domain."
+// }
