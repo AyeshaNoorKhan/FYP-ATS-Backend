@@ -11,7 +11,7 @@ const jobSchema = new mongoose.Schema({
   job_title: { type: String, required: true },
   job_location: { type: String, required: true },
   job_positions: { type: String, required: true },
-  job_description: { type: String, required: true },
+  job_description: { type: String, required: false },
   // job_descriptionB:  {type:String,required:false,},
   // job_descriptionC:  {type:String,required:false,},
   // job_descriptionD:  {type:String,required:false,},
@@ -24,7 +24,7 @@ const jobSchema = new mongoose.Schema({
   // job_qualificationC:{type:String,required:false,},
   // job_qualificationD:{type:String,required:false,},
   job_qualification: { type: String, required: false },
-  job_experience: { type: String, required: true },
+  job_experience: { type: String, required: false },
 });
 
 const JobDetail = new mongoose.model("JobDetail", jobSchema);
