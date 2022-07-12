@@ -29,10 +29,10 @@ class JobDetailController {
       job_code &&
       job_category &&
       job_title &&
-      job_location &&
-      job_positions &&
-      job_description &&
-      job_experience
+      job_location
+      // job_positions &&
+      // job_description &&
+      // job_experience
     ) {
       try {
         const newJob = new JobDetail({
@@ -59,9 +59,11 @@ class JobDetailController {
           job_experience: job_experience,
         });
         newJob.save();
-        res.send({ status: "Success", message: "New Job Created" });
+        res.status(200).json({ message: "New Job Created" });
+        // res.send({ status: "Success", message: "New Job Created" });
       } catch (error) {
-        res.send({ status: "Failed", message: "Failed to create new Job" });
+        res.status(500).json({ message: "Failed to create new Job" });
+        // res.send({ status: "Failed", message: "Failed to create new Job" });
       }
     } else {
       res.send({ status: "Failed", message: "Fill All Fields" });
