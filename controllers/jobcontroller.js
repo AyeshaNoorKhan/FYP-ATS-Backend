@@ -10,18 +10,7 @@ class JobDetailController {
       job_location,
       job_positions,
       job_description,
-      // job_descriptionB,
-      // job_descriptionC,
-      // job_descriptionD,
-      // job_descriptionE,
-      // job_descriptionF,
-      // job_descriptionG,
-      // job_descriptionH,
       job_qualification,
-      // job_qualificationB,
-      // job_qualificationC,
-      // job_qualificationD,
-      // job_qualificationE,
       job_experience,
     } = req.body;
     if (
@@ -29,10 +18,11 @@ class JobDetailController {
       job_code &&
       job_category &&
       job_title &&
-      job_location
-      // job_positions &&
-      // job_description &&
-      // job_experience
+      job_location &&
+      job_positions &&
+      job_description &&
+      job_experience &&
+      job_qualification
     ) {
       try {
         const newJob = new JobDetail({
@@ -44,26 +34,13 @@ class JobDetailController {
           job_location: job_location,
           job_positions: job_positions,
           job_description: job_description,
-          // job_descriptionB: job_descriptionB,
-          // job_descriptionC: job_descriptionC,
-          // job_descriptionD: job_descriptionD,
-          // job_descriptionE: job_descriptionE,
-          // job_descriptionF: job_descriptionF,
-          // job_descriptionG: job_descriptionG,
-          // job_descriptionH: job_descriptionH,
           job_qualification: job_qualification,
-          // job_qualificationB: job_qualificationB,
-          // job_qualificationC: job_qualificationC,
-          // job_qualificationD: job_qualificationD,
-          // job_qualificationE: job_qualificationE,
           job_experience: job_experience,
         });
         newJob.save();
         res.status(200).json({ message: "New Job Created" });
-        // res.send({ status: "Success", message: "New Job Created" });
       } catch (error) {
         res.status(500).json({ message: "Failed to create new Job" });
-        // res.send({ status: "Failed", message: "Failed to create new Job" });
       }
     } else {
       res.send({ status: "Failed", message: "Fill All Fields" });
@@ -91,18 +68,7 @@ class JobDetailController {
         job_location,
         job_positions,
         job_description,
-        // job_descriptionB,
-        // job_descriptionC,
-        // job_descriptionD,
-        // job_descriptionE,
-        // job_descriptionF,
-        // job_descriptionG,
-        // job_descriptionH,
         job_qualification,
-        // job_qualificationB,
-        // job_qualificationC,
-        // job_qualificationD,
-        // job_qualificationE,
         job_experience,
       } = req.body;
 
@@ -115,18 +81,7 @@ class JobDetailController {
         job_location: job_location,
         job_positions: job_positions,
         job_description: job_description,
-        // job_descriptionB: job_descriptionB,
-        // job_descriptionC: job_descriptionC,
-        // job_descriptionD: job_descriptionD,
-        // job_descriptionE: job_descriptionE,
-        // job_descriptionF: job_descriptionF,
-        // job_descriptionG: job_descriptionG,
-        // job_descriptionH: job_descriptionH,
         job_qualification: job_qualification,
-        // job_qualificationB: job_qualificationB,
-        // job_qualificationC: job_qualificationC,
-        // job_qualificationD: job_qualificationD,
-        // job_qualificationE: job_qualificationE,
         job_experience: job_experience,
       };
 
@@ -155,6 +110,23 @@ class JobDetailController {
       res.send({ getAllJob });
     } catch (error) {
       res.send({ status: "Failed", message: "Failed to retrieve Job Data" });
+    }
+  };
+
+  static deleteJobDetail = async (req, res) => {
+    try {
+      JobDetail.deleteOne({ job_id: req.params.id }, function (err, data) {
+        if (!err) {
+          res.send({
+            status: "Success",
+            message: "Successfully Deleted the Job Details",
+          });
+        } else {
+          console.log("error");
+        }
+      });
+    } catch (error) {
+      res.send({ status: "Failed", message: "Failed to delete Job Details" });
     }
   };
 }

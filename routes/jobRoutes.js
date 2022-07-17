@@ -8,8 +8,9 @@ const JobDetailController = require("../controllers/jobcontroller.js");
 
 router.post("/addjob", JobDetailController.addJobDetail);
 router.get("/getjobs", JobDetailController.getJobDetail);
-router.put("/updatejob", JobDetailController.updateJob);
+router.put("/updatejob/:id", JobDetailController.updateJob);
 router.get("/getjob/:id", JobDetailController.getSpecificJobDetail);
+router.delete("/deletejob/:id", JobDetailController.deleteJobDetail);
 
 //PRIVATE
 
