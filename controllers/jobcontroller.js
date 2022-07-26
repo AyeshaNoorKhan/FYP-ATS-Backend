@@ -59,7 +59,6 @@ class JobDetailController {
   static updateJob = async (req, res) => {
     try {
       const {
-        _id,
         job_id,
         id,
         job_code,
