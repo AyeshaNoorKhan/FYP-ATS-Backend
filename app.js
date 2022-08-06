@@ -52,6 +52,7 @@ app.use("/api/aptTest", aptitudeRoutes);
 app.use("/api/candinfo", candInfoRoutes);
 app.use("/api/candinfo", candInfoRoutes);
 app.use("/api/candinfo", candInfoRoutes);
+app.use("/api/candinfo", candInfoRoutes);
 
 // Candidate Resume
 //app.use("/api/candinfo",candInfoRoutes);
