@@ -88,6 +88,17 @@ class CandInfoController {
       });
     }
   };
+
+  static verifyCandidate = async (req, res) => {
+    const { verify_cand_id } = req.body;
+    try {
+      const getCand = await CandInfo.find({ cand_id: verify_cand_id });
+      res.send(getCand.cand_id);
+      res.status(200).json({ message: "Applicant Found" });
+    } catch (error) {
+      res.status(500).json({ message: "Applicant Not Found" });
+    }
+  };
 }
 
 module.exports = CandInfoController;
