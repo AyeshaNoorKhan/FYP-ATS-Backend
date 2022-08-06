@@ -90,9 +90,9 @@ class CandInfoController {
   };
 
   static verifyCandidate = async (req, res) => {
-    const { verify_cand_id } = req.body;
+    const { verify_cand_email } = req.body;
     try {
-      const getCand = await CandInfo.find({ cand_id: verify_cand_id });
+      const getCand = await CandInfo.find({ cand_email: verify_cand_email });
       res.send(getCand.cand_id);
       res.status(200).json({ message: "Applicant Found" });
     } catch (error) {
