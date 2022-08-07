@@ -8,6 +8,7 @@ const jobRoutes = require("./routes/jobRoutes.js");
 const aptitudeRoutes = require("./routes/aptitudeRoutes.js");
 const candInfoRoutes = require("./routes/candinfoRoutes.js");
 const candResRoutes = require("./routes/candresRoutes");
+const candTestResultRoutes = require("./routes/candtestresultRoutes");
 
 dotenv.config();
 const app = express();
@@ -58,6 +59,11 @@ app.use("/api/candinfo", candInfoRoutes);
 //app.use("/api/candinfo",candInfoRoutes);
 app.use("/api/candresm", candResRoutes);
 app.use("/api/candresm", candResRoutes);
+
+// Candidate Test Result
+app.use("/api/testresult", candTestResultRoutes);
+app.use("/api/testresult", candTestResultRoutes);
+app.use("/api/testresult", candTestResultRoutes);
 
 app.listen(port, () => {
   console.log(`Server Listening at http://localhost:${port}`);

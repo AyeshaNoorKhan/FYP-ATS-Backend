@@ -28,9 +28,11 @@ class CandInfoController {
       api_secret: process.env.CLOUDINARY_API_SECRET,
     });
     try {
+      let generatePublicID = cand_id + cand_name;
       let uploadedfile = await cloudinary.uploader.upload(req.file.path, {
         folder: "CandidateResumes",
         resource_type: "auto",
+        public_id: generatePublicID,
       });
       const { originalName } = req.file;
       const { secure_url, bytes, format } = uploadedfile;
