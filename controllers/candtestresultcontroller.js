@@ -3,7 +3,6 @@ const CandTestRes = require("../models/CandidateTestResultSchema.js");
 class CandidateTestResultController {
   static addCandTestResult = async (req, res) => {
     const {
-      cand_score_id,
       cand_id,
       job_id,
       oop_score,
