@@ -41,6 +41,14 @@ class CandInfoController {
         resource_type: "auto",
         public_id: generatePublicID,
       });
+      // let uploadedfileAgain = await cloudinary.uploader.upload(
+      //   req.file.path,
+      //   { ocr: "adv_ocr" },
+      //   function (error, result) {
+      //     console.log(result);
+      //   }
+      // );
+
       const { originalName } = req.file;
       const { secure_url, bytes, format } = uploadedfile;
 
@@ -107,6 +115,25 @@ class CandInfoController {
 
   static getCandInfo = async (req, res) => {
     try {
+      cloudinary.config({
+        cloud_name: process.env.CLOUDINARY_NAME,
+        api_key: process.env.CLOUDINARY_API_KEY,
+        api_secret: process.env.CLOUDINARY_API_SECRET,
+      });
+      let uploadedfileAgain = await cloudinary.api.resource(
+        "hmwbckieimbjzs9lwdkh",
+        // { public_id: "hmwbckieimbjzs9lwdkh" },
+        function (error, result) {
+          console.log(
+            "OCR result",
+            result.info.ocr.adv_ocr.data[0].fullTextAnnotation.text
+          );
+        }
+      );
+      // console.log("info: ", uploadedfileAgain);
+
+      // const { secure_url, bytes, format, info } = uploadedfileAgain;
+      // console.log("info: ", info);
       const getCand = await CandInfo.find({ cand_id: req.params.cid });
       res.send({ getCand });
     } catch (error) {
