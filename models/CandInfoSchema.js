@@ -5,6 +5,7 @@ require("dotenv").config();
 const CandInfoSchema = new mongoose.Schema({
   date: { type: Date, default: Date.now },
   cand_id: { type: String, unique: true },
+  job_id: { type: String, required: false },
   cand_name: { type: String, required: false },
   cand_email: { type: String, required: false },
   cand_contact: { type: String, required: false },

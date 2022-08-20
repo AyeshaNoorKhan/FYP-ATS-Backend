@@ -66,7 +66,8 @@ app.use("/api/testresult", candTestResultRoutes);
 app.use("/api/testresult", candTestResultRoutes);
 app.use("/api/testresult", candTestResultRoutes);
 
-// Candidate Test Result
+// Final Shortlisted Resumes
+app.use("/api/shortlistresume", shortlistedResume);
 app.use("/api/shortlistresume", shortlistedResume);
 
 app.listen(port, () => {
