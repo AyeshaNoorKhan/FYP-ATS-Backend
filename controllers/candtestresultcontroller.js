@@ -63,6 +63,7 @@ class CandidateTestResultController {
   static getSpecificCandTestResult = async (req, res) => {
     try {
       const getonecandtestresult = await CandTestRes.find({
+        job_id: req.params.jid,
         cand_id: req.params.cid,
       });
       res.send({ getonecandtestresult });

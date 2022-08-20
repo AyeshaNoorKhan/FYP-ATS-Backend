@@ -9,7 +9,7 @@ router.post(
   CandidateTestResultController.addCandTestResult
 );
 router.get(
-  "/getcandtestresult/:cid",
+  "/getcandtestresult/:jid/:cid",
   CandidateTestResultController.getSpecificCandTestResult
 );
 router.get(
