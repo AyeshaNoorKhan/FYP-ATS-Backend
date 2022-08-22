@@ -17,8 +17,7 @@ class ShorlistedResumeController {
       resume_rank &&
       resume_url &&
       resume_matched_job &&
-      cand_positionApplied &&
-      test_link_status
+      cand_positionApplied
     ) {
       try {
         let str = "EUR-RS-";
