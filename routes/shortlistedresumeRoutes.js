@@ -12,6 +12,10 @@ router.get(
   "/getshortlistedresume",
   ShorlistedResumeController.getShortlistedResumes
 );
+router.put(
+  "/updateTestLinkStatus",
+  ShorlistedResumeController.updateStatusTestLink
+);
 
 //PRIVATE
 
