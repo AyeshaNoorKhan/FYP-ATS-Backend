@@ -6,11 +6,11 @@ const CandTestResultSchema = new mongoose.Schema({
   cand_score_id: { type: String, unique: true },
   cand_id: { type: String, required: true },
   job_id: { type: String, required: true },
-  oop_score: { type: Number, required: true },
-  ds_score: { type: Number, required: true },
-  gk_score: { type: Number, required: true },
-  other_score: { type: Number, required: true },
-  total_score: { type: Number, required: true },
+  oop_score: { type: Number, required: false, default: 0 },
+  ds_score: { type: Number, required: false, default: 0 },
+  gk_score: { type: Number, required: false, default: 0 },
+  other_score: { type: Number, required: false, default: 0 },
+  total_score: { type: Number, required: false, default: 0 },
 });
 
 const CandTestResult = new mongoose.model(

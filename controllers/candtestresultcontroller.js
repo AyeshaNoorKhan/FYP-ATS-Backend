@@ -11,15 +11,7 @@ class CandidateTestResultController {
       other_score,
       total_score,
     } = req.body;
-    if (
-      cand_id &&
-      job_id &&
-      oop_score &&
-      ds_score &&
-      gk_score &&
-      other_score &&
-      total_score
-    ) {
+    if (cand_id && job_id) {
       try {
         let str = "EUR-CS-";
         let x = Date.now().toString(8);
