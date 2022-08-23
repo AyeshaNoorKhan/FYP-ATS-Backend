@@ -14,7 +14,7 @@ const ShorlistedResumeSchema = new mongoose.Schema({
   test_link_status: {
     type: String,
     default: "Not Assigned Test",
-    required: true,
+    required: false,
   },
 });
 
