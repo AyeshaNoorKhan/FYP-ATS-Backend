@@ -120,22 +120,22 @@ class CandInfoController {
 
   static getCandInfo = async (req, res) => {
     try {
-      cloudinary.config({
-        cloud_name: process.env.CLOUDINARY_NAME,
-        api_key: process.env.CLOUDINARY_API_KEY,
-        api_secret: process.env.CLOUDINARY_API_SECRET,
-      });
-      let uploadedfileAgain = await cloudinary.api.resource(
-        "CandidateResumes/EUR-C-256948Ateeb Khan",
-        // { public_id: "hmwbckieimbjzs9lwdkh" },
-        function (error, result) {
-          console.log(
-            "OCR result",
-            // result
-            result.info.ocr.adv_ocr.data[0].fullTextAnnotation.text
-          );
-        }
-      );
+      // cloudinary.config({
+      //   cloud_name: process.env.CLOUDINARY_NAME,
+      //   api_key: process.env.CLOUDINARY_API_KEY,
+      //   api_secret: process.env.CLOUDINARY_API_SECRET,
+      // });
+      // let uploadedfileAgain = await cloudinary.api.resource(
+      //   "CandidateResumes/EUR-C-256948Ateeb Khan",
+      //   // { public_id: "hmwbckieimbjzs9lwdkh" },
+      //   function (error, result) {
+      //     console.log(
+      //       "OCR result",
+      //       // result
+      //       result.info.ocr.adv_ocr.data[0].fullTextAnnotation.text
+      //     );
+      //   }
+      // );
       // console.log("info: ", uploadedfileAgain);
 
       // const { secure_url, bytes, format, info } = uploadedfileAgain;

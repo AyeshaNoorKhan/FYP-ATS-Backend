@@ -33,7 +33,7 @@ class ShorlistedResumeController {
           resume_rank: resume_rank,
           resume_matched_job: resume_matched_job,
           resume_url: resume_url,
-          test_link_status: test_link_status,
+          test_link_status: "Not Assign",
         });
         newShortlistedResume.save();
         res.status(200).json({ message: "New Resume Shortlisted" });
@@ -61,12 +61,27 @@ class ShorlistedResumeController {
 
   static updateStatusTestLink = async (req, res) => {
     try {
-      const getallshortlistedresumes = await Shortlisted_Resume.find({});
-      res.send({ getallshortlistedresumes });
+      const { test_link_status } = req.body;
+      var UpdatedTestLinkStatus = {
+        test_link_status: test_link_status,
+      };
+      Shortlisted_Resume.findOneAndUpdate(
+        { cand_id: req.params.cid, job_id: req.params.jid },
+        UpdatedTestLinkStatus,
+        { new: true },
+        function (err, UpdatedTestLinkStatus) {
+          if (err) {
+            console.log("err", err);
+            res.status(500).send(err);
+          } else {
+            res.status(200).send("Updated Test Link Status");
+          }
+        }
+      );
     } catch (error) {
       res.send({
         status: "Failed",
-        message: "Failed to retrieve shortlisted resumes",
+        message: "Failed to update Test Link Status",
       });
     }
   };

@@ -13,7 +13,7 @@ const ShorlistedResumeSchema = new mongoose.Schema({
   resume_url: { type: String, required: true },
   test_link_status: {
     type: String,
-    default: "Not Assigned Test",
+    default: "Test Not Assigned",
     required: false,
   },
 });

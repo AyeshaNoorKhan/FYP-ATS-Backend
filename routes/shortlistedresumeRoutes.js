@@ -13,7 +13,7 @@ router.get(
   ShorlistedResumeController.getShortlistedResumes
 );
 router.put(
-  "/updateTestLinkStatus",
+  "/updateTestLinkStatus/:jid/:cid",
   ShorlistedResumeController.updateStatusTestLink
 );
 
