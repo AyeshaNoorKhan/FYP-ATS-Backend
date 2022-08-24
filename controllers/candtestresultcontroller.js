@@ -36,12 +36,9 @@ class CandidateTestResultController {
           cand_id: cand_id,
           job_id: job_id,
         });
-        console.log("rankOfCandidate", rankOfCandidate);
-        console.log("rankOfCandidate", rankOfCandidate[0].resume_rank);
-
         axios
           .post(
-            "https://ats-backend-flask.herokuapp.com/api/shortlistcandidate/addfinalshortlistedcand",
+            "https://atsbackend.herokuapp.com/api/shortlistcandidate/addfinalshortlistedcand",
             {
               cand_id: cand_id,
               job_id: job_id,
