@@ -1,4 +1,7 @@
 const CandTestRes = require("../models/CandidateTestResultSchema.js");
+const Shortlisted_Resume = require("../models/ShorlistedResumeSchema.js");
+
+const axios = require("axios");
 
 class CandidateTestResultController {
   static addCandTestResult = async (req, res) => {
@@ -29,6 +32,32 @@ class CandidateTestResultController {
           total_score: total_score,
         });
         newtestresult.save();
+        const rankOfCandidate = await Shortlisted_Resume.find({
+          cand_id: cand_id,
+          job_id: job_id,
+        });
+        console.log("rankOfCandidate", rankOfCandidate);
+        console.log("rankOfCandidate", rankOfCandidate[0].resume_rank);
+
+        axios
+          .post(
+            "https://ats-backend-flask.herokuapp.com/api/shortlistcandidate/addfinalshortlistedcand",
+            {
+              cand_id: cand_id,
+              job_id: job_id,
+              total_score: total_score,
+              resume_rank: rankOfCandidate[0].resume_rank,
+            },
+            {
+              headers: { "Content-Type": "application/json" },
+            }
+          )
+          .then(function (response) {
+            console.log("Final Shortlisted Candidate", response.data);
+          })
+          .catch(function (error) {
+            console.log("Failed to Final Shortlist Candidate", error);
+          });
         res.status(200).json({ message: "New Candidate Test Result Saved" });
       } catch (error) {
         res

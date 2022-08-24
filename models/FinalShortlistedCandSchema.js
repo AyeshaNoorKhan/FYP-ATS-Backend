@@ -7,6 +7,13 @@ const FinalShortlistedCandidateSchema = new mongoose.Schema({
   shortlisted_cand_Id: { type: String, unique: true, required: true },
   cand_id: { type: String, required: true },
   job_id: { type: String, required: true },
+  total_score: { type: Number, required: true },
+  resume_rank: { type: String, required: true },
+  final_interview_link_status: {
+    type: String,
+    default: "Not Invited",
+    required: false,
+  },
 });
 
 const FinalShortlistedCandidate = new mongoose.model(

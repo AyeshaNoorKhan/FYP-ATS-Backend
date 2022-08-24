@@ -33,7 +33,7 @@ class ShorlistedResumeController {
           resume_rank: resume_rank,
           resume_matched_job: resume_matched_job,
           resume_url: resume_url,
-          test_link_status: "Not Assign",
+          test_link_status: "Not Assigned",
         });
         newShortlistedResume.save();
         res.status(200).json({ message: "New Resume Shortlisted" });
