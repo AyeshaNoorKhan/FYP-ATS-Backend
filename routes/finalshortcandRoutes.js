@@ -8,7 +8,10 @@ router.post(
   "/addfinalshortlistedcand",
   FinalShortlistedCandController.addFinalShortCand
 );
-router.get("/getAllCandRes", FinalShortlistedCandController.getAllCandRes);
+router.get(
+  "/getAllFinalShortCand",
+  FinalShortlistedCandController.getAllCandRes
+);
 // router.get("/getCandRes/:cid", FinalShortlistedCandController.getCandRes);
 
 //PRIVATE
