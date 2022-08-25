@@ -85,8 +85,6 @@ class ShorlistedResumeController {
       });
     }
   };
-
-  //NA-245
 }
 
 module.exports = ShorlistedResumeController;

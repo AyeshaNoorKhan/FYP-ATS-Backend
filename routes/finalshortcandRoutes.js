@@ -12,7 +12,10 @@ router.get(
   "/getAllFinalShortCand",
   FinalShortlistedCandController.getAllCandRes
 );
-// router.get("/getCandRes/:cid", FinalShortlistedCandController.getCandRes);
+router.put(
+  "/updateFinalInterviewStatus/:jid/:cid",
+  FinalShortlistedCandController.updateFinalInterviewStatus
+);
 
 //PRIVATE
 

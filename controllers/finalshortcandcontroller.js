@@ -51,6 +51,33 @@ class FinalShortlistedCandController {
       });
     }
   };
+
+  static updateFinalInterviewStatus = async (req, res) => {
+    try {
+      const { final_interview_link_status } = req.body;
+      var UpdatedFinalInterviewStatus = {
+        final_interview_link_status: final_interview_link_status,
+      };
+      FinalShortCand.findOneAndUpdate(
+        { cand_id: req.params.cid, job_id: req.params.jid },
+        UpdatedFinalInterviewStatus,
+        { new: true },
+        function (err, UpdatedFinalInterviewStatus) {
+          if (err) {
+            console.log("err", err);
+            res.status(500).send(err);
+          } else {
+            res.status(200).send("Updated Final Interview Status");
+          }
+        }
+      );
+    } catch (error) {
+      res.send({
+        status: "Failed",
+        message: "Failed to Update Final Interview Status",
+      });
+    }
+  };
 }
 
 module.exports = FinalShortlistedCandController;
