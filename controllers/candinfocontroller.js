@@ -162,7 +162,7 @@ class CandInfoController {
           test_link_status: "Assigned",
         });
         if (getCandShortResume.length > 0) {
-          res.status(200).json({ message: "Applicant Found" });
+          res.status(200).json({ getCand });
         } else {
           res.status(500).json({ message: "Applicant Not Assigned Test" });
         }
@@ -177,7 +177,7 @@ class CandInfoController {
           }
         }
         if (getCandShortResume.length > 0) {
-          res.status(200).json({ message: "Applicant Found" });
+          res.status(200).json({ getCand });
         } else {
           res.status(500).json({ message: "Applicant Not Assigned Test" });
         }
