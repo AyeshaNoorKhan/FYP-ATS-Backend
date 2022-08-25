@@ -161,6 +161,11 @@ class CandInfoController {
           cand_id: getCand[0].cand_id,
           test_link_status: "Assigned",
         });
+        if (getCandShortResume.length > 0) {
+          res.status(200).json({ message: "Applicant Found" });
+        } else {
+          res.status(500).json({ message: "Applicant Not Assigned Test" });
+        }
       } else if (getCand.length > 1) {
         for (let i = 0; i < getCand.length; i++) {
           const getCandShortResume = await Shortlisted_Resume.find({
@@ -171,13 +176,16 @@ class CandInfoController {
             break;
           }
         }
+        if (getCandShortResume.length > 0) {
+          res.status(200).json({ message: "Applicant Found" });
+        } else {
+          res.status(500).json({ message: "Applicant Not Assigned Test" });
+        }
       } else {
-        res.status(500).json({ message: "Applicant Not Found" });
+        res.status(500).json({ message: "Applicant Not Registered" });
       }
-      res.status(200).json({ message: "Applicant Found" });
-      // res.send({ getCandShortResume });
     } catch (err) {
-      res.status(500).json({ message: "Applicant Not Found" });
+      res.status(500).json({ message: "Something went wrong" });
     }
   };
 }
