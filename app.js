@@ -11,6 +11,7 @@ const candResRoutes = require("./routes/finalshortcandRoutes");
 const candTestResultRoutes = require("./routes/candtestresultRoutes");
 const shortlistedResume = require("./routes/shortlistedresumeRoutes");
 const finalShortlistedCandRoutes = require("./routes/finalshortcandRoutes");
+const adminDetailRoutes = require("./routes/adminDetailRoutes");
 
 dotenv.config();
 const app = express();
@@ -43,37 +44,27 @@ app.use(express.json());
 
 // JOB Routes
 app.use("/api/job", jobRoutes);
-app.use("/api/job", jobRoutes);
-app.use("/api/job", jobRoutes);
-app.use("/api/job", jobRoutes);
 
 // Aptitude Test Routes
-app.use("/api/aptTest", aptitudeRoutes);
 app.use("/api/aptTest", aptitudeRoutes);
 
 // Candidate Information
 app.use("/api/candinfo", candInfoRoutes);
-app.use("/api/candinfo", candInfoRoutes);
-app.use("/api/candinfo", candInfoRoutes);
-app.use("/api/candinfo", candInfoRoutes);
 
 // Candidate Resume
-//app.use("/api/candinfo",candInfoRoutes);
-app.use("/api/candresm", candResRoutes);
 app.use("/api/candresm", candResRoutes);
 
 // Candidate Test Result
 app.use("/api/testresult", candTestResultRoutes);
-app.use("/api/testresult", candTestResultRoutes);
-app.use("/api/testresult", candTestResultRoutes);
 
 // Final Shortlisted Resumes
-app.use("/api/shortlistresume", shortlistedResume);
 app.use("/api/shortlistresume", shortlistedResume);
 
 // Final Shortlisted Candidates
 app.use("/api/shortlistcandidate", finalShortlistedCandRoutes);
-app.use("/api/shortlistcandidate", finalShortlistedCandRoutes);
+
+// Final Shortlisted Candidates
+app.use("/api/admindetail", adminDetailRoutes);
 
 app.listen(port, () => {
   console.log(`Server Listening at http://localhost:${port}`);
