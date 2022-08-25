@@ -1,4 +1,6 @@
 const CandInfo = require("../models/CandInfoSchema.js");
+const Shortlisted_Resume = require("../models/ShorlistedResumeSchema.js");
+
 const fs = require("fs");
 const axios = require("axios");
 
@@ -108,7 +110,7 @@ class CandInfoController {
 
   static getAllCandInfo = async (req, res) => {
     try {
-      const getAllCand = await CandInfo.find({});
+      const getAllCand = await CandInfo.find({}).sort({ $natural: -1 });
       res.send({ getAllCand });
     } catch (error) {
       res.send({
@@ -154,9 +156,24 @@ class CandInfoController {
     const { verify_cand_email } = req.body;
     try {
       const getCand = await CandInfo.find({ cand_email: verify_cand_email });
-      // console.log("getCand city:", getCand[0].cand_city);
-      // res.status(200).json({ message: "Applicant Found" });
-      res.send({ getCand });
+      if (getCand.length == 1) {
+        const getCandShortResume = await Shortlisted_Resume.find({
+          cand_id: getCand[0].cand_id,
+          test_link_status: "Assigned",
+        });
+      } else if (getCand.length > 1) {
+        for (let i = 0; i < getCand.length; i++) {
+          const getCandShortResume = await Shortlisted_Resume.find({
+            cand_id: getCand[i].cand_id,
+            test_link_status: "Assigned",
+          });
+          if (getCandShortResume.length > 0) {
+            break;
+          }
+        }
+      }
+      res.status(200).json({ message: "Applicant Found" });
+      // res.send({ getCandShortResume });
     } catch (err) {
       res.status(500).json({ message: "Applicant Not Found" });
     }
