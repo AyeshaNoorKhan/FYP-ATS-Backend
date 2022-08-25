@@ -171,6 +171,8 @@ class CandInfoController {
             break;
           }
         }
+      } else {
+        res.status(500).json({ message: "Applicant Not Found" });
       }
       res.status(200).json({ message: "Applicant Found" });
       // res.send({ getCandShortResume });
