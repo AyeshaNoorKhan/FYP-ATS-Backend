@@ -9,7 +9,6 @@ class ShorlistedResumeController {
       resume_url,
       resume_matched_job,
       cand_positionApplied,
-      test_link_status,
     } = req.body;
     if (
       cand_id &&
