@@ -7,7 +7,7 @@ const ShorlistedResumeSchema = new mongoose.Schema({
   short_resume_id: { type: String, unique: true },
   cand_id: { type: String, unique: false },
   job_id: { type: String, unique: false },
-  cand_positionApplied: { type: String, unique: true },
+  cand_positionApplied: { type: String, unique: false },
   resume_rank: { type: String, required: true },
   resume_matched_job: { type: String, required: true },
   resume_url: { type: String, required: true },
