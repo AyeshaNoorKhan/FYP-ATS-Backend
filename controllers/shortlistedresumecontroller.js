@@ -1,4 +1,4 @@
-const Shortlisted_Resume = require("../models/ShorlistedResumeSchema.js");
+const Shortlisted_Resume = require("../models/ShortlistResumeSchema.js");
 
 class ShorlistedResumeController {
   static addshortlistedresume = async (req, res) => {

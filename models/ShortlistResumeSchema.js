@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-const ShorlistedResumeSchema = new mongoose.Schema({
+const ShorlistResumeSchema = new mongoose.Schema({
   date: { type: Date, default: Date.now },
   short_resume_id: { type: String, unique: false },
   cand_id: { type: String, required: true, unique: false },
@@ -19,8 +19,8 @@ const ShorlistedResumeSchema = new mongoose.Schema({
   },
 });
 
-const ShorlistedResume = new mongoose.model(
-  "ShorlistedResume",
-  ShorlistedResumeSchema
+const ShorlistResume = new mongoose.model(
+  "ShorlistResume",
+  ShorlistResumeSchema
 );
-module.exports = ShorlistedResume;
+module.exports = ShorlistResume;
