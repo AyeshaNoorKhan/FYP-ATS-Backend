@@ -1,5 +1,5 @@
 const CandInfo = require("../models/CandInfoSchema.js");
-const Shortlisted_Resume = require("../models/ShorlistedResumeSchema.js");
+const Shortlisted_Resume = require("../models/ShortlistResumeSchema.js");
 
 const fs = require("fs");
 const axios = require("axios");
