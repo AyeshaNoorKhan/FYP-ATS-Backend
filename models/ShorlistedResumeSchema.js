@@ -5,9 +5,9 @@ require("dotenv").config();
 const ShorlistedResumeSchema = new mongoose.Schema({
   date: { type: Date, default: Date.now },
   short_resume_id: { type: String, unique: true },
-  cand_id: { type: String, unique: false },
-  job_id: { type: String, unique: false },
-  cand_positionApplied: { type: String, unique: false },
+  cand_id: { type: String },
+  job_id: { type: String },
+  cand_positionApplied: { type: String },
   resume_rank: { type: String, required: true },
   resume_matched_job: { type: String, required: true },
   resume_url: { type: String, required: true },
