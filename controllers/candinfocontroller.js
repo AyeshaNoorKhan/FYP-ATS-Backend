@@ -1,3 +1,4 @@
+const CandTestRes = require("../models/CandidateTestResultSchema.js");
 const CandInfo = require("../models/CandInfoSchema.js");
 const Shortlisted_Resume = require("../models/ShortlistResumeSchema.js");
 
@@ -156,33 +157,41 @@ class CandInfoController {
     const { verify_cand_email } = req.body;
     try {
       const getCand = await CandInfo.find({ cand_email: verify_cand_email });
-      if (getCand.length == 1) {
-        const getCandShortResume = await Shortlisted_Resume.find({
-          cand_id: getCand[0].cand_id,
-          test_link_status: "Assigned",
-        });
-        if (getCandShortResume.length > 0) {
-          res.status(200).json({ getCand });
-        } else {
-          res.status(500).json({ message: "Applicant Not Assigned Test" });
-        }
-      } else if (getCand.length > 1) {
-        for (let i = 0; i < getCand.length; i++) {
+      const checkCandAlreadyGivenTest = await CandTestRes.find({
+        cand_id: getCand[0].cand_id,
+        job_id: getCand[0].job_id,
+      });
+      if (checkCandAlreadyGivenTest.length >= 1) {
+        res.status(500).json({ message: "Test Results Already Submitted" });
+      } else {
+        if (getCand.length == 1) {
           const getCandShortResume = await Shortlisted_Resume.find({
-            cand_id: getCand[i].cand_id,
+            cand_id: getCand[0].cand_id,
             test_link_status: "Assigned",
           });
           if (getCandShortResume.length > 0) {
-            break;
+            res.status(200).json({ getCand });
+          } else {
+            res.status(500).json({ message: "Applicant Not Assigned Test" });
           }
-        }
-        if (getCandShortResume.length > 0) {
-          res.status(200).json({ getCand });
+        } else if (getCand.length > 1) {
+          for (let i = 0; i < getCand.length; i++) {
+            const getCandShortResume = await Shortlisted_Resume.find({
+              cand_id: getCand[i].cand_id,
+              test_link_status: "Assigned",
+            });
+            if (getCandShortResume.length > 0) {
+              break;
+            }
+          }
+          if (getCandShortResume.length > 0) {
+            res.status(200).json({ getCand });
+          } else {
+            res.status(500).json({ message: "Applicant Not Assigned Test" });
+          }
         } else {
-          res.status(500).json({ message: "Applicant Not Assigned Test" });
+          res.status(500).json({ message: "Applicant Not Registered" });
         }
-      } else {
-        res.status(500).json({ message: "Applicant Not Registered" });
       }
     } catch (err) {
       res.status(500).json({ message: "Something went wrong" });
