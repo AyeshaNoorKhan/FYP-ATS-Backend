@@ -1,5 +1,5 @@
 const CandTestRes = require("../models/CandidateTestResultSchema.js");
-const Shortlisted_Resume = require("../models/ShorlistedResumeSchema.js");
+const Shortlisted_Resume = require("../models/ShortlistResumeSchema.js");
 
 const axios = require("axios");
 
